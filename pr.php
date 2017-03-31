@@ -4,7 +4,7 @@
  * @version 1.0
  */
 /*
-Plugin Name: PR Debug
+Plugin Name: AAA PR Debug
 Plugin URI: http://webplantmedia.com
 Description: Call this function to 'pretty print' any variable or array. This comes in very hand when debugging your php code.
 Author: Chris Baldelomar
@@ -29,3 +29,12 @@ function pr($value=''){
 		print("<p>&gt;${value}&lt;</p>");
 	}
 } 
+function print_filters_for( $hook = '' ) {
+    global $wp_filter;
+    if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
+        return;
+
+    print '<pre>';
+    print_r( $wp_filter[$hook] );
+    print '</pre>';
+}
